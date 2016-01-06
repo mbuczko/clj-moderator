@@ -20,7 +20,7 @@ Note that Polish extractor is used by default.
 
 ##How matchers work
 
-Each matcher returns either a number (integer of float) or a set (data structure). Now the magic happens - if it's a number a ```:min``` and ```:max``` parameters are checked if numeric value fits in between (:min <= value <= :max).
+Each matcher returns either a number (integer of float) or a set (data structure). Now the magic happens - if it's a number a ```:min``` and ```:max``` parameters are checked if numeric value fits in between ```(:min <= value <= :max)```.
 If this condition is met a ```:penalty``` value is added to final score. Otherwise score is not modified. Oh, by default ```:min``` is set to 0 and ```:max``` to Integer/MAX_VALUE
 so there is no need to provide them both if only minimal or maximal value really matters.
 
@@ -53,7 +53,7 @@ Well, the easiest way is to use ```defmatcher``` macro. As said before, matcher 
         (m/bad-email-matcher    :penalty 20 :field [:username] :blacklist (:emails blacklists))
         (m/repeats-matcher      :penalty 10 :field [:title] :min 2))
 
-As a result a ```Candidate``` record will be returned with 3 relevant keys: ```:body``` with original data, ```scores``` with vector of applied penalties in form of ```[penalty field matcher-name]``` and ```:final``` with sum of all applied penalties.
+As a result a ```Candidate``` record will be returned with 3 relevant keys: ```:body``` with original data, ```:scores``` with vector of applied penalties in form of ```[penalty field matcher-name]``` and ```:final``` with sum of all applied penalties.
 
     {:body {:title "Amazing brand new Alfa-Romeo with A FEW minor glitches",
             :contact {:phone-numbers ["1234" "55556"]},
