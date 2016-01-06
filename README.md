@@ -32,8 +32,7 @@ Well, the easiest way is to use ```defmatcher``` macro. As said before, matcher 
 
     (defmatcher
        (fn [input]
-          ...process input and return number or a settings... ))
-
+          ...process input and return number or a set... ))
 
 ##Examples
 
