@@ -4,11 +4,11 @@ Ever wanted to score incoming data based on easily defined criteria? Here it com
 
 What matchers do we have in our toolbelt?
 
- - ```upercase-matcher``` : counts capitals letters
- - ```content-size-matcher``` : counts all the characters
- - ```bad-words-matcher``` : compares input against defined set of bad words
- - ```bad-email-matcher``` : compares input against defined set of malicious emails
- - ```repeats-matcher``` : calculates distances and detects characters repetition
+ - ```upercase-matcher``` : returns number of capitals letters
+ - ```content-size-matcher``` : returns count of all characters
+ - ```bad-words-matcher``` : lowercases and splits incoming data into set of words (stripped of common non-letter characters) and compares with ```:badwords```
+ - ```bad-email-matcher``` : lowercases incoming data, wraps it into one-element set and compares with ```:badwords```
+ - ```repeats-matcher``` : returns number of subsequently repeating characters
  - ```bayes-matcher``` : returns bayes classification in binary form (0 if input was classified positively, 1 otherwise)
 
 Naïve Bayes classification is based on [judgr](https://github.com/danielfm/judgr) and 2 wrapper function have been exposed to classify input phrase:
@@ -20,7 +20,7 @@ Note that Polish extractor is used by default.
 
 ##How matchers work
 
-Each matcher returns either a number (integer of float) or a set (data structure). Now the magic happens - if it's a number a ```:min``` and ```:max``` parameters are checked if numeric value fits in between ```(:min <= value <= :max)```.
+Each matcher returns either a number (integer or float) or a set (data structure). Now the magic happens - if it's a number a ```:min``` and ```:max``` parameters are checked if numeric value fits in between ```(:min <= value <= :max)```.
 If this condition is met a ```:penalty``` value is added to final score. Otherwise score is not modified. Oh, by default ```:min``` is set to 0 and ```:max``` to Integer/MAX_VALUE
 so there is no need to provide them both if only minimal or maximal value really matters.
 
