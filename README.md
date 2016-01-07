@@ -6,8 +6,8 @@ What matchers do we have in our toolbelt?
 
  - ```upercase-matcher``` : returns number of capitals letters
  - ```content-size-matcher``` : returns count of all characters
- - ```bad-words-matcher``` : lowercases and splits incoming data into set of words (stripped of common non-letter characters) and compares with ```:badwords```
- - ```bad-email-matcher``` : lowercases incoming data, wraps it into one-element set and compares with ```:badwords```
+ - ```bad-words-matcher``` : lowercases and splits incoming data into set of words (stripped of common non-letter characters) and compares with ```:blacklist```
+ - ```bad-email-matcher``` : lowercases incoming data, wraps it into one-element set and compares with ```:blacklist```
  - ```repeats-matcher``` : returns number of subsequently repeating characters
  - ```bayes-matcher``` : returns bayes classification in binary form (0 if input was classified positively, 1 otherwise)
 
