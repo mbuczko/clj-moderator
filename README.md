@@ -41,10 +41,12 @@ Well, the easiest way is to use ```defmatcher``` macro. As said before, matcher 
     (def blacklists {:content #{"incomplete", "bullshit"}
                      :emails #{"bad@boy.from.ru"}})
 
-    (-> {:title "Amazing brand new Alfa-Romeo with A FEEEW minor glitches"
-         :contact {:phone-numbers ["1234", "55556"]}
-         :description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bullshit."
-         :username "bad@boy.from.ru"}
+    (def candidate {:title "Amazing brand new Alfa-Romeo with A FEEEW minor glitches"
+                    :contact {:phone-numbers ["1234", "55556"]}
+                    :description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bullshit."
+                    :username "bad@boy.from.ru"})
+
+    (-> candidate
         (m/content-size-matcher :penalty 20 :field [:title] :min 71)
         (m/content-size-matcher :penalty 10 :field [:contact :phone-numbers] :max 0)
         (m/uppercase-matcher    :penalty 20 :field [:description] :min 36)
