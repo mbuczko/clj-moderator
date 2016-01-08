@@ -1,8 +1,8 @@
-(ns mbuczko.moderator
-  (:require [clojure.string     :as s]
-            [judgr.core         :as jc]
-            [judgr.settings     :as js]
-            [mbuczko.distance   :as d]))
+(ns mbuczko.moderator.matchers
+  (:require [clojure.string             :as str]
+            [judgr.core                 :as jc]
+            [judgr.settings             :as js]
+            [mbuczko.moderator.distance :as d]))
 
 (defrecord Candidate [body scores final])
 
@@ -66,7 +66,7 @@
 
 (defmatcher uppercase-matcher
   (fn [input]
-    (.length (s/replace input #"[^A-ZĄĘŚŻŹĆŃÓŁ]" ""))))
+    (.length (str/replace input #"[^A-ZĄĘŚŻŹĆŃÓŁ]" ""))))
 
 (defmatcher content-size-matcher
   (fn [input]
@@ -75,13 +75,13 @@
 (defmatcher bad-words-matcher
   (fn [input]
     (set (-> input
-             (s/replace #"[!,\.\-\/=\~\(\)\*&#@]" "")
-             (s/lower-case)
-             (s/split #"\s")))))
+             (str/replace #"[!,\.\-\/=\~\(\)\*&#@]" "")
+             (str/lower-case)
+             (str/split #"\s")))))
 
 (defmatcher bad-email-matcher
   (fn [input]
-    (conj #{} (s/lower-case input))))
+    (conj #{} (str/lower-case input))))
 
 (defmatcher repeats-matcher
   (fn [input]

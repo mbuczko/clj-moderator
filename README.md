@@ -38,7 +38,7 @@ Well, the easiest way is to use ```defmatcher``` macro. As said before, matcher 
 
 ##Examples
 
-    (require '[mbuczko.moderator :as m])
+    (require '[mbuczko.moderator.matchers :as m])
 
     (def blacklists {:content #{"incomplete", "bullshit"}
                      :emails #{"bad@boy.from.ru"}})

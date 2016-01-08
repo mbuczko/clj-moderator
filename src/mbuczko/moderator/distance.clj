@@ -1,4 +1,4 @@
-(ns mbuczko.distance
+(ns mbuczko.moderator.distance
   (:require [clojure.core.matrix :refer [mget mset! new-matrix]]))
 
 (defn da-lev [str1 str2]

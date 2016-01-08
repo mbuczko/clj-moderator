@@ -1,5 +1,5 @@
-(ns mbuczko.moderator-test
-  (:require [mbuczko.moderator :refer :all]
+(ns mbuczko.moderator.matchers-test
+  (:require [mbuczko.moderator.matchers :refer :all]
             [midje.sweet :refer :all]))
 
 (fact "counts number of upper-case letters and adjusts score accordingly"
