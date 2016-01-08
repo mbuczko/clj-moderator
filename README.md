@@ -41,7 +41,7 @@ Well, the easiest way is to use ```defmatcher``` macro. As said before, matcher 
     (def blacklists {:content #{"incomplete", "bullshit"}
                      :emails #{"bad@boy.from.ru"}})
 
-    (-> {:title "Amazing brand new Alfa-Romeo with A FEW minor glitches"
+    (-> {:title "Amazing brand new Alfa-Romeo with A FEEEW minor glitches"
          :contact {:phone-numbers ["1234", "55556"]}
          :description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bullshit."
          :username "bad@boy.from.ru"}
@@ -54,14 +54,30 @@ Well, the easiest way is to use ```defmatcher``` macro. As said before, matcher 
 
 As a result a ```Candidate``` record will be returned with 3 relevant keys: ```:body``` with original data, ```:scores``` with vector of applied penalties in form of ```[penalty field matcher-name]``` and ```:final``` with sum of all applied penalties.
 
-    {:body {:title "Amazing brand new Alfa-Romeo with A FEW minor glitches",
+    {:body {:title "Amazing brand new Alfa-Romeo with A FEEEW minor glitches",
             :contact {:phone-numbers ["1234" "55556"]},
             :description "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Bullshit.",
             :username "bad@boy.from.ru"},
      :scores [[30 [:description] bad-words-matcher]
               [20 [:username] bad-email-matcher]],
-     :final 50}
+              [10 [:title] repeats-matcher]],
+     :final 60}
 
+If you want to negtively classify given phrase:
+
+    (m/negative "Ala ma kota a kot ma Alę")
+
+Now, let's pass it through ```bayes-matcher```:
+
+    (m/bayes-matcher {:text "Ala lubi kota"} :penalty 99 :field [:text] :min 1)
+
+Result:
+
+    {:body {:text "Ala lubi kota"},
+     :scores [[99 [:text] bayes-matcher]],
+     :final 99}
+
+As expected, we got penalty score 99 because ```bayes-matcher``` classified our phrase as a negative one (and returned 1 in result).
 
 ##LICENSE
 

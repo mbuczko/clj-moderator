@@ -1,10 +1,10 @@
 (set-env!
  :source-paths   #{"src"}
- :dependencies '[[org.clojure/clojure "1.7.0" :scope "provided"]
-                 [ccfontes/fuzzy-matcher "0.0.1"]
+ :dependencies '[[org.clojure/clojure "1.8.0-RC4" :scope "provided"]
                  [boot/core "2.5.5"]
                  [adzerk/bootlaces "0.1.13"]
                  [zilti/boot-midje "0.2.1-SNAPSHOT" :scope "test"]
+                 [net.mikera/core.matrix "0.48.0"]
                  [midje "1.8.3" :scope "test"]
                  [judgr "0.3.2-SNAPSHOT"]])
 

@@ -2,7 +2,7 @@
   (:require [clojure.string     :as s]
             [judgr.core         :as jc]
             [judgr.settings     :as js]
-            [fuzzy-matcher.core :as fuzzy]))
+            [mbuczko.distance   :as d]))
 
 (defrecord Candidate [body scores final])
 
@@ -85,7 +85,7 @@
 
 (defmatcher repeats-matcher
   (fn [input]
-    (fuzzy/edit-distance input (apply str (map first (partition-by identity input))))))
+    (d/da-lev input (apply str (map first (partition-by identity input))))))
 
 (defmatcher bayes-matcher
   (fn [input]
