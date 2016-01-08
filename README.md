@@ -1,3 +1,5 @@
+[![Clojars Project](https://img.shields.io/clojars/v/mbuczko/moderator.svg)](https://clojars.org/mbuczko
+
 # Semi-automatic content moderator
 
 Ever wanted to score incoming data based on easily defined criteria? Here it comes - content moderator, a set of basic (and some more advanced) matchers which form together a pipe where you put a data on one side and get a score on the other one.
