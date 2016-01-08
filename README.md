@@ -1,4 +1,4 @@
-[![Clojars Project](https://img.shields.io/clojars/v/mbuczko/moderator.svg)](https://clojars.org/mbuczko
+[![Clojars Project](https://img.shields.io/clojars/v/mbuczko/moderator.svg)](https://clojars.org/mbuczko/moderator)
 
 # Semi-automatic content moderator
 
