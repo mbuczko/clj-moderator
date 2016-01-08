@@ -32,7 +32,7 @@ In case when matcher returned a set instead of number a ```:blacklist``` set is 
 
 Well, the easiest way is to use ```defmatcher``` macro. As said before, matcher is a function which returns either a number or a set and that's the only rule a matcher has to obey:
 
-    (defmatcher
+    (defmatcher my-matcher
        (fn [input]
           ...process input and return number or a set... ))
 
