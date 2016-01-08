@@ -27,3 +27,7 @@
             d {:title "Suuuper oferta !!"}]
         (:final (repeats-matcher c :penalty 10 :field [:title] :min 2)) => 0
         (:final (repeats-matcher d :penalty 10 :field [:title] :min 2)) => 10))
+
+(fact "bayes matcher scores correctly negatively classified phrase"
+      (let [phrase (negative "Ala ma kota a kot ma Alę")]
+        (:final (bayes-matcher {:text "Ala lubi kota"} :penalty 99 :field [:text] :min 1)) => 99))
