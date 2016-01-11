@@ -1,8 +1,8 @@
 (set-env!
  :source-paths   #{"src"}
  :dependencies '[[org.clojure/clojure "1.8.0-RC4" :scope "provided"]
-                 [boot/core "2.5.5"]
-                 [adzerk/bootlaces "0.1.13"]
+                 [boot/core "2.5.5" :scope "test"]
+                 [adzerk/bootlaces "0.1.13" :scope "test"]
                  [zilti/boot-midje "0.2.1-SNAPSHOT" :scope "test"]
                  [net.mikera/core.matrix "0.48.0"]
                  [midje "1.8.3" :scope "test"]
@@ -11,7 +11,7 @@
 (require '[adzerk.bootlaces :refer :all]
          '[zilti.boot-midje :refer [midje]])
 
-(def +version+ "0.2.0")
+(def +version+ "0.3.0")
 
 (bootlaces! +version+)
 
