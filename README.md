@@ -74,7 +74,7 @@ As a result a ```Candidate``` record will be returned with 3 relevant keys: ```:
  :final 60}
 ```
 
-If you want to negtively classify given phrase:
+If you want to negatively classify given phrase:
 
 ``` clojure
 (m/negative "Ala ma kota a kot ma Alę")
