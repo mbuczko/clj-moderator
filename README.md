@@ -20,7 +20,7 @@ Naïve Bayes classification is based on [judgr](https://github.com/danielfm/judg
 
 Note that Polish extractor is used by default.
 
-##How matchers work
+## How matchers work
 
 Each matcher returns either a number (integer or float) or a set (data structure). Now the magic happens - if it's a number a ```:min``` and ```:max``` parameters are checked if numeric value fits in between ```(:min <= value <= :max)```.
 If this condition is met a ```:penalty``` value is added to final score. Otherwise score is not modified. Oh, by default ```:min``` is set to 0 and ```:max``` to Integer/MAX_VALUE
@@ -28,7 +28,7 @@ so there is no need to provide them both if only minimal or maximal value really
 
 In case when matcher returned a set instead of number a ```:blacklist``` set is checked if it contains at least one of elements returned by matcher. If so, again, ```:penalty``` is added to final score.
 
-##How to define custom matcher
+## How to define custom matcher
 
 Well, the easiest way is to use ```defmatcher``` macro. As said before, matcher is a function which returns either a number or a set and that's the only rule a matcher has to obey:
 
@@ -39,7 +39,7 @@ Well, the easiest way is to use ```defmatcher``` macro. As said before, matcher 
 ```
 
 
-##Examples
+## Examples
 
 ``` clojure
 (require '[mbuczko.moderator.matchers :as m])
@@ -97,7 +97,7 @@ Result:
 
 As expected, we got penalty score 99 because ```bayes-matcher``` classified our phrase as a negative one (and returned 1 in result).
 
-##LICENSE
+## LICENSE
 
 Copyright © Michał Buczko
 
